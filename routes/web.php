@@ -20,7 +20,10 @@ Route::get('/', function () {
 
 Route::get('/cdr', function () {
 
-    $cdrs = DB::table('cdr')->get();
+    $cdrs = DB::table('wms')
+        ->where('start', '>', '2021-01-01')
+        ->where('lastdata', 'like', '%veloce%')
+        ->count();
 
     return view('cdr', ['cdrs' => $cdrs]);
 });
