@@ -54,7 +54,6 @@
 </head>
 <body class="antialiased">
 
-<?php $mot = DB::table('cdr')->where('De', 'like', '%Lucas%')->get(); ?>
 <div class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -85,14 +84,57 @@
         <!-- Tab content -->
         <div id="PerfIndiA" class="tabcontent">
             <div class="text-blue-500">
-                <p>{{ $cdrs }}</p>
+                <table style="padding: 2px">
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px">L</th>
+                    <th style="padding: 5px 10px">M</th>
+                    <th style="padding: 5px 10px">M</th>
+                    <th style="padding: 5px 10px">J</th>
+                    <th style="padding: 5px 10px">V</th>
+                    <th style="padding: 5px 10px">S</th>
+                    <th style="padding: 5px 10px">D</th>
+                    <th style="padding: 5px 10px">Total</th>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user['id'] }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['weekdays']['monday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['tuesday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['wednesday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['thursday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['friday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['saturday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['sunday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['monday']['number'] + $user['weekdays']['tuesday']['number'] + $user['weekdays']['wednesday']['number'] + $user['weekdays']['thursday']['number'] + $user['weekdays']['friday']['number'] + $user['weekdays']['saturday']['number'] + $user['weekdays']['sunday']['number'] }}</td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
         </div>
 
         <div id="PerfIndiT" class="tabcontent">
             <div class="text-red-500">
 
-
+                <table>
+                    <th></th>
+                    <th></th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>13</th>
+                    <th>14</th>
+                    <th>15</th>
+                    <th>16</th>
+                    <th>17</th>
+                    <th>18</th>
+                    <th>19</th>
+                    <th>En dehors des plages</th>
+                    <th>Total appels pris</th>
+                    <th>Classement</th>
+                </table>
 
             </div>
         </div>
