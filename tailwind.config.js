@@ -9,6 +9,14 @@ module.exports = {
 
     theme: {
         extend: {
+            colors: {
+                epm: '#203361',
+                epmLight: '#9DAFC4',
+                epmLighter: '#cedfea'
+            },
+            zIndex: {
+              '-1': '-1'
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },

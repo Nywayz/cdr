@@ -112,7 +112,7 @@
                             <td>{{ $user['weekdays']['saturday']['number'] }}</td>
                             <td>{{ $user['weekdays']['sunday']['number'] }}</td>
                             <td>{{ $user['total'] }}</td>
-                       </tr>
+                        </tr>
                     @endforeach
                     <td style="padding: 5px 10px" colspan="2">Total</td>
                     <td style="padding: 5px 10px"><?php $total1 = 0; foreach ($users as $user){ $total1 += $user['weekdays']['monday']['number'];} echo $total1; ?></td>
@@ -127,7 +127,7 @@
             </div>
             <div style="margin: 10px"></div>
             <div class="text-red-500">
-                <table>
+                <table style="padding: 3px">
                     <th style="padding: 5px 10px"></th>
                     <th style="padding: 5px 10px"></th>
                     <th style="padding: 5px 10px">8</th>
@@ -141,6 +141,7 @@
                     <th style="padding: 5px 10px">16</th>
                     <th style="padding: 5px 10px">17</th>
                     <th style="padding: 5px 10px">18</th>
+                    <th style="padding: 5px 10px">19</th>
                     <th style="padding: 5px 10px">H. plages</th>
                     <th style="padding: 5px 10px">Total</th>
                     @foreach($users as $user)
@@ -158,7 +159,8 @@
                             <td>{{ $user['hours']['sixteen']['number'] }}</td>
                             <td>{{ $user['hours']['seventeen']['number'] }}</td>
                             <td>{{ $user['hours']['eighteen']['number'] }}</td>
-                            <td>{{ $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['nineteen']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'] }}</td>
+                            <td>{{ $user['hours']['nineteen']['number'] }}</td>
+                            <td>{{ $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'] }}</td>
                             <td>{{ $user['total'] }}</td>
                         </tr>
                     @endforeach
@@ -174,8 +176,9 @@
                     <td style="padding: 5px 10px"><?php $total9 = 0; foreach ($users as $user){ $total9 += $user['hours']['sixteen']['number'];} echo $total9; ?></td>
                     <td style="padding: 5px 10px"><?php $total10 = 0; foreach ($users as $user){ $total10 += $user['hours']['seventeen']['number'];} echo $total10; ?></td>
                     <td style="padding: 5px 10px"><?php $total11 = 0; foreach ($users as $user){ $total11 += $user['hours']['eighteen']['number'];} echo $total11; ?></td>
-                    <td style="padding: 5px 10px"><?php $total13 = 0; foreach ($users as $user){ $total12 += $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['nineteen']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'];} echo $total13; ?></td>
-                    <td style="padding: 5px 10px">{{ $total1 + $total2 + $total3 + $total4 + $total5 + $total6 +  $total7 +  $total8 +  $total9 +  $total10 +  $total11 +  $total12 }}</td>
+                    <td style="padding: 5px 10px"><?php $total12 = 0; foreach ($users as $user){ $total12 += $user['hours']['nineteen']['number'];} echo $total12; ?></td>
+                    <td style="padding: 5px 10px"><?php $total13 = 0; foreach ($users as $user){ $total13 += $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'];} echo $total13; ?></td>
+                    <td style="padding: 5px 10px">{{ $total1 + $total2 + $total3 + $total4 + $total5 + $total6 +  $total7 +  $total8 +  $total9 +  $total10 +  $total11 +  $total12 +  $total13 }}</td>
                 </table>
 
             </div>
@@ -183,7 +186,100 @@
 
         <!-- Tab One - Performances individuelles (Temps) -->
         <div id="PerfIndiT" class="tabcontent">
+            <div class="text-blue-500">
+                <table>
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px">L</th>
+                    <th style="padding: 5px 10px">M</th>
+                    <th style="padding: 5px 10px">M</th>
+                    <th style="padding: 5px 10px">J</th>
+                    <th style="padding: 5px 10px">V</th>
+                    <th style="padding: 5px 10px">S</th>
+                    <th style="padding: 5px 10px">D</th>
+                    <th style="padding: 5px 10px">Total</th>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user['id'] }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['weekdays']['monday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['tuesday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['wednesday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['thursday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['friday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['saturday']['number'] }}</td>
+                            <td>{{ $user['weekdays']['sunday']['number'] }}</td>
+                            <td>{{ $user['total'] }}</td>
+                        </tr>
+                    @endforeach
+                    <td style="padding: 5px 10px" colspan="2">Total</td>
+                    <td style="padding: 5px 10px"><?php $total1 = 0; foreach ($users as $user){ $total1 += $user['weekdays']['monday']['number'];} echo $total1; ?></td>
+                    <td style="padding: 5px 10px"><?php $total2 = 0; foreach ($users as $user){ $total2 += $user['weekdays']['tuesday']['number'];} echo $total2; ?></td>
+                    <td style="padding: 5px 10px"><?php $total3 = 0; foreach ($users as $user){ $total3 += $user['weekdays']['wednesday']['number'];} echo $total3; ?></td>
+                    <td style="padding: 5px 10px"><?php $total4 = 0; foreach ($users as $user){ $total4 += $user['weekdays']['thursday']['number'];} echo $total4; ?></td>
+                    <td style="padding: 5px 10px"><?php $total5 = 0; foreach ($users as $user){ $total5 += $user['weekdays']['friday']['number'];} echo $total5; ?></td>
+                    <td style="padding: 5px 10px"><?php $total6 = 0; foreach ($users as $user){ $total6 += $user['weekdays']['saturday']['number'];} echo $total6; ?></td>
+                    <td style="padding: 5px 10px"><?php $total7 = 0; foreach ($users as $user){ $total7 += $user['weekdays']['sunday']['number'];} echo $total7; ?></td>
+                    <td style="padding: 5px 10px">{{ $total1 + $total2 + $total3 + $total4 + $total5 + $total6 +  $total7 }}</td>
+                </table>
+            </div>
+            <div style="margin: 10px"></div>
+            <div class="text-red-500">
+                <table style="padding: 3px">
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px"></th>
+                    <th style="padding: 5px 10px">8</th>
+                    <th style="padding: 5px 10px">9</th>
+                    <th style="padding: 5px 10px">10</th>
+                    <th style="padding: 5px 10px">11</th>
+                    <th style="padding: 5px 10px">12</th>
+                    <th style="padding: 5px 10px">13</th>
+                    <th style="padding: 5px 10px">14</th>
+                    <th style="padding: 5px 10px">15</th>
+                    <th style="padding: 5px 10px">16</th>
+                    <th style="padding: 5px 10px">17</th>
+                    <th style="padding: 5px 10px">18</th>
+                    <th style="padding: 5px 10px">19</th>
+                    <th style="padding: 5px 10px">H. plages</th>
+                    <th style="padding: 5px 10px">Total</th>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{ $user['id'] }}</td>
+                            <td>{{ $user['name'] }}</td>
+                            <td>{{ $user['hours']['eight']['number'] }}</td>
+                            <td>{{ $user['hours']['nine']['number'] }}</td>
+                            <td>{{ $user['hours']['ten']['number'] }}</td>
+                            <td>{{ $user['hours']['eleven']['number'] }}</td>
+                            <td>{{ $user['hours']['twelve']['number'] }}</td>
+                            <td>{{ $user['hours']['thirteen']['number'] }}</td>
+                            <td>{{ $user['hours']['fourteen']['number'] }}</td>
+                            <td>{{ $user['hours']['fifteen']['number'] }}</td>
+                            <td>{{ $user['hours']['sixteen']['number'] }}</td>
+                            <td>{{ $user['hours']['seventeen']['number'] }}</td>
+                            <td>{{ $user['hours']['eighteen']['number'] }}</td>
+                            <td>{{ $user['hours']['nineteen']['number'] }}</td>
+                            <td>{{ $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'] }}</td>
+                            <td>{{ $user['total'] }}</td>
+                        </tr>
+                    @endforeach
+                    <td style="padding: 5px 10px" colspan="2">Total</td>
+                    <td style="padding: 5px 10px"><?php $total1 = 0; foreach ($users as $user){ $total1 += $user['hours']['eight']['number'];} echo $total1; ?></td>
+                    <td style="padding: 5px 10px"><?php $total2 = 0; foreach ($users as $user){ $total2 += $user['hours']['nine']['number'];} echo $total2; ?></td>
+                    <td style="padding: 5px 10px"><?php $total3 = 0; foreach ($users as $user){ $total3 += $user['hours']['ten']['number'];} echo $total3; ?></td>
+                    <td style="padding: 5px 10px"><?php $total4 = 0; foreach ($users as $user){ $total4 += $user['hours']['eleven']['number'];} echo $total4; ?></td>
+                    <td style="padding: 5px 10px"><?php $total5 = 0; foreach ($users as $user){ $total5 += $user['hours']['twelve']['number'];} echo $total5; ?></td>
+                    <td style="padding: 5px 10px"><?php $total6 = 0; foreach ($users as $user){ $total6 += $user['hours']['thirteen']['number'];} echo $total6; ?></td>
+                    <td style="padding: 5px 10px"><?php $total7 = 0; foreach ($users as $user){ $total7 += $user['hours']['fourteen']['number'];} echo $total7; ?></td>
+                    <td style="padding: 5px 10px"><?php $total8 = 0; foreach ($users as $user){ $total8 += $user['hours']['fifteen']['number'];} echo $total8; ?></td>
+                    <td style="padding: 5px 10px"><?php $total9 = 0; foreach ($users as $user){ $total9 += $user['hours']['sixteen']['number'];} echo $total9; ?></td>
+                    <td style="padding: 5px 10px"><?php $total10 = 0; foreach ($users as $user){ $total10 += $user['hours']['seventeen']['number'];} echo $total10; ?></td>
+                    <td style="padding: 5px 10px"><?php $total11 = 0; foreach ($users as $user){ $total11 += $user['hours']['eighteen']['number'];} echo $total11; ?></td>
+                    <td style="padding: 5px 10px"><?php $total12 = 0; foreach ($users as $user){ $total12 += $user['hours']['nineteen']['number'];} echo $total12; ?></td>
+                    <td style="padding: 5px 10px"><?php $total13 = 0; foreach ($users as $user){ $total13 += $user['hours']['one']['number'] + $user['hours']['two']['number'] + $user['hours']['three']['number'] + $user['hours']['four']['number'] + $user['hours']['five']['number'] + $user['hours']['six']['number'] + $user['hours']['seven']['number'] + $user['hours']['twenty']['number'] + $user['hours']['twentyOne']['number'] + $user['hours']['twentyTwo']['number'] + $user['hours']['twentyThree']['number'];} echo $total13; ?></td>
+                    <td style="padding: 5px 10px">{{ $total1 + $total2 + $total3 + $total4 + $total5 + $total6 +  $total7 +  $total8 +  $total9 +  $total10 +  $total11 +  $total12 +  $total13 }}</td>
+                </table>
 
+            </div>
         </div>
 
         <div id="PerfGrp" class="tabcontent">

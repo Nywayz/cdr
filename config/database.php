@@ -63,6 +63,44 @@ return [
             ]) : [],
         ],
 
+        'wildix' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_WILDIX', '127.0.0.1'),
+            'port' => env('DB_PORT_WILDIX', '3306'),
+            'database' => env('DB_DATABASE_WILDIX', 'forge'),
+            'username' => env('DB_USERNAME_WILDIX', 'forge'),
+            'password' => env('DB_PASSWORD_WILDIX', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'wildix02' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_WILDIX02', '127.0.0.1'),
+            'port' => env('DB_PORT_WILDIX02', '3306'),
+            'database' => env('DB_DATABASE_WILDIX02', 'forge'),
+            'username' => env('DB_USERNAME_WILDIX02', 'forge'),
+            'password' => env('DB_PASSWORD_WILDIX02', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
